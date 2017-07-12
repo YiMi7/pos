@@ -1,15 +1,5 @@
 'use strict';
 
-
-//JS深拷贝的方法
-let deepCopy= function(source) {
-  let result={};
-  for (let key in source) {
-    result[key] = typeof source[key]==='object'? deepCopy(source[key]): source[key];
-  }
-  return result;
-};
-
 function preProcessInput(inputs){
   //console.log(intputs)
   let arr = loadAllItems();
@@ -17,7 +7,7 @@ function preProcessInput(inputs){
     for(let j = 0; j < arr.length; j++){
       if(inputs[index] == arr[j].barcode){
         //console.log(arr[j])
-        inputs[index] = deepCopy(arr[j]);
+        inputs[index] = arr[j];
       }
     }
   }
